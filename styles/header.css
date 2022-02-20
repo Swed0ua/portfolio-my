@@ -1,0 +1,211 @@
+header {
+    position: fixed !important;
+    left: 0;
+    top: -100px;
+    z-index: 999;
+    transition: all ease 0.6s;
+    -webkit-transition: all ease 0.6s;
+    -moz-transition: all ease 0.6s;
+    -ms-transition: all ease 0.6s;
+    -o-transition: all ease 0.6s;
+}
+
+.header__content {
+    width: 100%;
+    height: 100px !important;
+    display: flex;
+    align-items: center;
+    background-color: #29262F;
+}
+
+header .logo__ico {
+    width: 35px;
+}
+
+header .logo__text {
+    letter-spacing: 10px;
+    margin-left: 30px;
+    font-size: 24px;
+    font-weight: 300;
+    text-transform: uppercase;
+    position: relative;
+    
+}
+
+.logo__text_active::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background-color: #fff;
+    animation-name: text;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.header__logo {
+    display: flex;
+    align-items: center;
+}
+
+.header__menu {
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 1;
+    text-transform: lowercase;
+}
+
+.header__menu>ul {
+    display: flex;
+    align-items: center;
+}
+
+.header__menu>ul>li:not(:first-child) {
+    margin-left: 50px;
+}
+
+.menu {
+    font-size: 18px;
+    letter-spacing: 5px;
+}
+
+.menu .menu__item {
+    cursor: pointer;
+    position: relative;
+}
+
+.header__menu .menu__item::before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background-color: #CDDEF4 ;
+    transition: all ease 0.2s;
+    -webkit-transition: all ease 0.2s;
+    -moz-transition: all ease 0.2s;
+    -ms-transition: all ease 0.2s;
+    -o-transition: all ease 0.2s;
+}
+
+.menu__item:hover::before{
+    width: 100%;
+}
+
+.menu__burger-ico {
+    padding: 20px;
+    cursor: pointer;
+    display: none;
+    margin: 0 !important;
+}
+
+.menu__burger-wrapper{
+    width: 30px;
+    height: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu__burger,
+.menu__burger-wrapper::after,
+.menu__burger-wrapper::before
+ {
+    width: 100%;
+    height: 3px;
+    background-color: #CDDEF4;
+    position: absolute;
+    transition: all ease 0.2s;
+    -webkit-transition: all ease 0.2s;
+    -moz-transition: all ease 0.2s;
+    -ms-transition: all ease 0.2s;
+    -o-transition: all ease 0.2s;
+}
+
+.menu__burger {
+    top: 50%;
+    transform: translate(0,-50%);
+    -webkit-transform: translate(0,-50%);
+    -moz-transform: translate(0,-50%);
+    -ms-transform: translate(0,-50%);
+    -o-transform: translate(0,-50%);
+}
+
+.menu__burger-wrapper::after,
+.menu__burger-wrapper::before {
+    content: "";
+    left: 0;
+}
+
+.menu__burger-wrapper::after {
+    top: 0;
+}
+
+
+.menu__burger-wrapper::before {
+    bottom: 0;
+}
+
+.menu__burger_active
+.menu__burger-wrapper::before {
+    bottom: 50%;
+    transform: translate(0, 50%) rotate(-45deg);
+    -webkit-transform: translate(0, 50%) rotate(-45deg);
+    -moz-transform: translate(0, 50%) rotate(-45deg);
+    -ms-transform: translate(0, 50%) rotate(-45deg);
+    -o-transform: translate(0, 50%) rotate(-45deg);
+}
+
+.menu__burger_active
+.menu__burger-wrapper::after {
+    top: 50%;
+    transform:  translate(0, -50%) rotate(45deg);
+    -webkit-transform:  translate(0, -50%) rotate(45deg);
+    -moz-transform:  translate(0, -50%) rotate(45deg);
+    -ms-transform:  translate(0, -50%) rotate(45deg);
+    -o-transform:  translate(0, -50%) rotate(45deg);
+}
+
+.menu__burger_active
+.menu__burger {
+    width: 0;
+}
+
+
+/* Animation */
+
+@keyframes text {
+    0% {opacity: 0;}
+    25% {opacity: 1;}
+    50% {opacity: 0;}
+    75%{opacity: 1;}
+    100%{opacity: 0;}
+}
+
+
+/* Media queries */
+
+@media screen and (max-width: 765px){
+    .menu__item {
+        display: none;
+    }
+    .menu__burger-ico{
+        display: flex;
+    }
+}
+
+@media screen and (max-width: 500px){
+    header .logo__text{
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 400px){
+    header .logo__text {
+        letter-spacing: 3px;
+        margin-left: 10px;
+    }
+}
